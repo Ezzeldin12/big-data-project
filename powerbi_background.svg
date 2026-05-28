@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+
+    <!-- Base dark gradient: navy-blue top-left → near-black bottom-right -->
+    <radialGradient id="bgGrad" cx="22%" cy="35%" r="75%" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#0e0e2c"/>
+      <stop offset="55%"  stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#060608"/>
+    </radialGradient>
+
+    <!-- Secondary accent gradient: subtle purple hint bottom-right -->
+    <radialGradient id="bgGrad2" cx="85%" cy="80%" r="55%" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#120820" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#060608" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Dot grid pattern: 1px dots every 32px -->
+    <pattern id="dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#3a3a7a" opacity="0.45"/>
+    </pattern>
+
+    <!-- Glow blur filter (large margins to avoid clipping) -->
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="90" result="blur"/>
+    </filter>
+    <filter id="glowSm" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="55" result="blur"/>
+    </filter>
+
+    <!-- Top header glow filter -->
+    <filter id="headerGlow" x="0%" y="0%" width="100%" height="2000%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+
+  </defs>
+
+  <!-- ── Layer 1: Base background ── -->
+  <rect width="1920" height="1080" fill="url(#bgGrad)"/>
+
+  <!-- ── Layer 2: Secondary gradient overlay ── -->
+  <rect width="1920" height="1080" fill="url(#bgGrad2)"/>
+
+  <!-- ── Layer 3: Glow orbs (soft ambient light) ── -->
+
+  <!-- Top-left orb: blue -->
+  <circle cx="180" cy="220" r="320" fill="#1a2070" opacity="0.18" filter="url(#glow)"/>
+
+  <!-- Bottom-right orb: deep blue -->
+  <circle cx="1740" cy="880" r="300" fill="#0d1a5e" opacity="0.16" filter="url(#glow)"/>
+
+  <!-- Top-right orb: purple -->
+  <circle cx="1650" cy="160" r="240" fill="#2a0a50" opacity="0.12" filter="url(#glow)"/>
+
+  <!-- Center-left subtle orb -->
+  <circle cx="400" cy="700" r="200" fill="#0a1040" opacity="0.10" filter="url(#glowSm)"/>
+
+  <!-- ── Layer 4: Dot grid overlay ── -->
+  <rect width="1920" height="1080" fill="url(#dots)" opacity="1"/>
+
+  <!-- ── Layer 5: Subtle horizontal scan lines (very faint) ── -->
+  <rect width="1920" height="1080" fill="url(#scanlines)" opacity="0.03"/>
+
+  <!-- ── Layer 6: Header zone — slightly lighter strip ── -->
+  <rect x="0" y="0" width="1920" height="68">
+    <animate attributeName="opacity" values="1" dur="1s" fill="freeze"/>
+  </rect>
+  <rect x="0" y="0" width="1920" height="68" fill="#12122a" opacity="0.55"/>
+
+  <!-- ── Layer 7: Header bottom accent line (blue glow) ── -->
+  <rect x="0" y="66" width="1920" height="2" fill="#4a9eff" opacity="0.35"/>
+  <!-- Glow duplicate for the line -->
+  <rect x="0" y="64" width="1920" height="6" fill="#4a9eff" opacity="0.08" filter="url(#headerGlow)"/>
+
+  <!-- ── Layer 8: Tab bar zone — slightly distinct ── -->
+  <rect x="0" y="68" width="1920" height="44" fill="#0d0d20" opacity="0.40"/>
+  <rect x="0" y="111" width="1920" height="1" fill="#2a2a4a" opacity="0.80"/>
+
+  <!-- ── Layer 9: Decorative corner accent (top-left) ── -->
+  <line x1="0" y1="0" x2="280" y2="0" stroke="#4a9eff" stroke-width="1" opacity="0.20"/>
+  <line x1="0" y1="0" x2="0"   y2="180" stroke="#4a9eff" stroke-width="1" opacity="0.15"/>
+
+  <!-- ── Layer 10: Decorative corner accent (bottom-right) ── -->
+  <line x1="1920" y1="1080" x2="1640" y2="1080" stroke="#9b59b6" stroke-width="1" opacity="0.15"/>
+  <line x1="1920" y1="1080" x2="1920" y2="900"  stroke="#9b59b6" stroke-width="1" opacity="0.12"/>
+
+</svg>
